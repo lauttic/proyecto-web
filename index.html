@@ -1,10 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>PROYECTO</title>
-  </head>
-  <body>
-    <h1>Mi pro7yeee</h1>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Tienda de dulces</title>
+  <link rel="stylesheet" href="/proyecto-web/styles.css">
+  <link rel="icon" href="/proyecto-web/shared/dulce.png" type="image/png">
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <h1>Tienda de Dulces</h1>
+      <img src="/proyecto-web/shared/dulce.png" alt="icon" class="icon">
+    </div>
+  </header>
+  <hr>
+  <main>
+    <div class="descripcion">
+      <p>Bienvenido, usted esta por comprar en Tienda de Dulces, por favor complete el formulario para finalizar con su compra.</p>
+    </div>
+    <div class="form">
+      <form action="#" method="post">
+        <div class="input-form">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+  
+        <div class="input-form">
+          <label for="email">Correo electrónico</label>
+          <input type="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+        </div>
+  
+        <div class="input-form">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" name="telefono" placeholder="Ingresa tu número de teléfono" required>
+        </div>
+  
+        <div class="input-form">
+          <label for="dulce">Productos</label>
+          <select name="dulce" required>
+            <option value="caramelos">Caramelos</option>
+            <option value="chocolates">Chocolates</option>
+            <option value="gomitas">Gomitas</option>
+            <option value="chicles">Chicles</option>
+            <option value="alfajor">Alfajor</option>
+          </select>
+        </div>
+  
+        <div class="input-form">
+          <label for="cantidad">Cantidad</label>
+          <input type="number" name="cantidad" min="1" value="1" required>
+        </div>
+  
+        <div class="input-form">
+          <label for="direccion">Dirección de envío</label>
+          <input type="text" name="direccion" placeholder="Ingresa tu dirección de envío" required>
+        </div>
+  
+        <div class="input-form">
+          <button type="submit">Realizar Compra</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+
 </html>
