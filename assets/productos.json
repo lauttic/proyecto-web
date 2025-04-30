@@ -8,98 +8,98 @@
           "nombre": "Medialuna",
           "descripcion": "Medialuna de manteca, tierna y deliciosa.",
           "precio": 1300,
-          "imagen": ""
+          "imagen": "assets/menu-images/medmanteca.jpg"
         },
         {
           "id": 2,
           "nombre": "Medialuna con dulce de leche",
           "descripcion": "Medialuna rellena con dulce de leche artesanal.",
           "precio": 1300,
-          "imagen": ""
+          "imagen": "assets/menu-images/medddl.png"
         },
         {
           "id": 3,
           "nombre": "Medialuna con pastelera",
           "descripcion": "Medialuna rellena con crema pastelera casera.",
           "precio": 1300,
-          "imagen": ""
+          "imagen": "assets/menu-images/medpastelera.jpg"
         },
         {
           "id": 4,
           "nombre": "Lengüita de pastelera",
           "descripcion": "Masa hojaldrada rellena de pastelera dulce.",
           "precio": 1300,
-          "imagen": ""
+          "imagen": "assets/menu-images/lenguapastelera.jpg"
         },
         {
           "id": 5,
           "nombre": "Lengüita de pastelera y dulce de leche",
           "descripcion": "Doble relleno: pastelera y dulce de leche.",
           "precio": 1300,
-          "imagen": ""
+          "imagen": "assets/menu-images/lenddlpast.jpg"
         },
         {
           "id": 6,
           "nombre": "Cornetto",
           "descripcion": "Croissant italiano tradicional, hojaldrado.",
           "precio": 3700,
-          "imagen": ""
+          "imagen": "assets/menu-images/cornetto.jpg"
         },
         {
           "id": 7,
           "nombre": "Cornetto con dulce de leche",
           "descripcion": "Cornetto relleno con dulce de leche cremoso.",
           "precio": 4800,
-          "imagen": ""
+          "imagen": "assets/menu-images/corneddl.jpeg"
         },
         {
           "id": 8,
           "nombre": "Cornetto con pastelera",
           "descripcion": "Cornetto relleno de crema pastelera.",
           "precio": 4800,
-          "imagen": ""
+          "imagen": "assets/menu-images/cornepaste.jpeg"
         },
         {
           "id": 9,
           "nombre": "Alfajor de maicena",
           "descripcion": "Clásico alfajor de maicena relleno de dulce de leche.",
           "precio": 3500,
-          "imagen": ""
+          "imagen": "assets/menu-images/maicena.jpg"
         },
         {
           "id": 10,
           "nombre": "Rollo de chocolate",
           "descripcion": "Rollo artesanal con chips de chocolate.",
           "precio": 4200,
-          "imagen": ""
+          "imagen": "assets/menu-images/rollchoco.jpg"
         },
         {
           "id": 11,
           "nombre": "Rollo de canela",
           "descripcion": "Rollo suave con canela especiada.",
           "precio": 4200,
-          "imagen": ""
+          "imagen": "assets/menu-images/rollocanela.jpg"
         },
         {
           "id": 12,
           "nombre": "Tostadas",
           "descripcion": "Tostadas con opción de queso crema y mermelada o manteca y dulce de leche.",
           "precio": 4600,
-          "imagen": ""
+          "imagen": "assets/menu-images/tostadas.jpg"
         },
         {
           "id": 13,
-          "nombre": "Budín de manzana invertida",
-          "descripcion": "Budín húmedo de manzana con toque casero.",
+          "nombre": "Torta de manzana invertida",
+          "descripcion": "Torta de manzana con toque casero.",
           "precio": 3500,
-          "imagen": ""
+          "imagen": "assets/menu-images/tortamanzana.jpg"
         },
         {
           "id": 14,
           "nombre": "Yogurt con granola y frutas",
           "descripcion": "Yogurt natural, granola casera y mix de frutas frescas.",
           "precio": 6500,
-          "imagen": ""
+          "imagen": "assets/menu-images/yogur.jpeg"
         }
       ]
     },
@@ -111,56 +111,56 @@
           "nombre": "Pocillo",
           "descripcion": "Café expreso intenso en pocillo pequeño.",
           "precio": 2600,
-          "imagen": ""
+          "imagen": "assets/menu-images/pocillo.jpg"
         },
         {
           "id": 16,
           "nombre": "Jarrito de café",
           "descripcion": "Café servido en jarrito, clásico y suave.",
           "precio": 3000,
-          "imagen": ""
+          "imagen": "assets/menu-images/jarrito.jpg"
         },
         {
           "id": 17,
           "nombre": "Taza de café con leche",
           "descripcion": "Mitad café, mitad leche, espumoso.",
           "precio": 3500,
-          "imagen": ""
+          "imagen": "assets/menu-images/cafecleche.jpg"
         },
         {
           "id": 18,
           "nombre": "Taza de lágrima",
           "descripcion": "Más leche que café, versión suave.",
           "precio": 3500,
-          "imagen": ""
+          "imagen": "assets/menu-images/lagrima.jpg"
         },
         {
           "id": 19,
           "nombre": "Capuchino",
           "descripcion": "Café con espuma de leche, cacao y canela.",
           "precio": 3500,
-          "imagen": ""
+          "imagen": "assets/menu-images/capuccino-italiano.png"
         },
         {
           "id": 20,
           "nombre": "Té negro",
           "descripcion": "Infusión de té negro clásico.",
           "precio": 3300,
-          "imagen": ""
+          "imagen": "assets/menu-images/Té-negro.jpg"
         },
         {
           "id": 21,
           "nombre": "Submarino",
           "descripcion": "Chocolate derretido en leche caliente.",
           "precio": 3700,
-          "imagen": ""
+          "imagen": "assets/menu-images/subamrino.jpeg"
         },
         {
           "id": 22,
           "nombre": "Mate cocido",
           "descripcion": "Infusión tradicional argentina.",
           "precio": 3300,
-          "imagen": ""
+          "imagen": "assets/menu-images/matecocido.jpg"
         }
       ]
     },
@@ -172,84 +172,84 @@
           "nombre": "Exprimido de naranja",
           "descripcion": "Jugo natural de naranjas recién exprimidas.",
           "precio": 4300,
-          "imagen": ""
+          "imagen": "assets/menu-images/exprimidonaranja.jpg"
         },
         {
           "id": 24,
           "nombre": "Licuado de banana",
           "descripcion": "Licuado clásico de banana y leche.",
           "precio": 4500,
-          "imagen": ""
+          "imagen": "assets/menu-images/licuado.jpg"
         },
         {
           "id": 25,
           "nombre": "Limonada",
           "descripcion": "Limonada fresca y natural.",
           "precio": 4500,
-          "imagen": ""
+          "imagen": "assets/menu-images/limonada.jpg"
         },
         {
           "id": 26,
           "nombre": "Café frío",
           "descripcion": "Café frío ideal para días calurosos.",
           "precio": 4500,
-          "imagen": ""
+          "imagen": "assets/menu-images/cafefrio.jpg"
         },
         {
           "id": 27,
           "nombre": "Agua con gas 500ml",
           "descripcion": "Agua mineral gasificada.",
           "precio": 2900,
-          "imagen": ""
+          "imagen": "assets/menu-images/aguagas.jpg"
         },
         {
           "id": 28,
           "nombre": "Agua sin gas 500ml",
           "descripcion": "Agua mineral natural.",
           "precio": 2900,
-          "imagen": ""
+          "imagen": "assets/menu-images/aguasingas.jpg"
         },
         {
           "id": 29,
           "nombre": "Sifón soda",
           "descripcion": "Clásico sifón de soda.",
           "precio": 3000,
-          "imagen": ""
+          "imagen": "assets/menu-images/soda.jpg"
         },
         {
           "id": 30,
           "nombre": "Levité pomelo 500ml",
           "descripcion": "Bebida Levité sabor pomelo.",
           "precio": 3100,
-          "imagen": ""
+          "imagen": "assets/menu-images/levitepomelo.jpg"
         },
         {
           "id": 31,
           "nombre": "Levité manzana 500ml",
           "descripcion": "Bebida Levité sabor manzana.",
           "precio": 3100,
-          "imagen": ""
+          "imagen": "assets/menu-images/levitemanzana.jpg"
         },
         {
           "id": 32,
           "nombre": "Coca Cola 500ml",
           "descripcion": "Gaseosa Coca-Cola tradicional.",
           "precio": 3400,
-          "imagen": ""
+          "imagen": "assets/menu-images/coca.jpg"
         },
         {
           "id": 33,
           "nombre": "Coca Zero 500ml",
           "descripcion": "Gaseosa Coca-Cola sin azúcar.",
           "precio": 3400,
-          "imagen": ""
+          "imagen": "assets/menu-images/cocazero.jpeg"
         },
         {
           "id": 34,
           "nombre": "Sprite 500ml",
           "descripcion": "Gaseosa Sprite sabor lima-limón.",
           "precio": 3400,
-          "imagen": ""
+          "imagen": "assets/menu-images/sprite.jpg"
         }
       ]
     }
