@@ -149,4 +149,48 @@
   .menu-card button:hover {
     background-color: #8b5e3c;
   }
+
+  #home {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .home-intro {
+    font-size: 1.1rem;
+    color: #5a4a3b;
+    max-width: 800px;
+    line-height: 1.7;
+  }
+  
+  .home-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .home-flex img {
+    flex: 1 1 40%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  .home-text {
+    flex: 2 1 300px;
+  }
+  
+  .home-text p {
+    margin-bottom: 15px;
+    color: #4a3b30;
+    font-size: 1rem;
+  }
+  
+  .home-fullwidth-img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 20px;
+  }
   
