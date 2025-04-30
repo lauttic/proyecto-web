@@ -1,71 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-  <meta charset="utf-8">
-  <title>Tienda de dulces</title>
+  <meta charset="UTF-8">
+  <title>Esquina Bermúdez</title>
   <link rel="stylesheet" href="./styles/styles.css">
-  <link rel="icon" href="/assets/dulce.png" type="image/png">
 </head>
 
 <body>
-  <script src="scripts/app.js"></script>
   <header>
-    <div class="header">
-      <h1>Tienda de Dulces</h1>
-      <img src="/assets/dulce.png" alt="icon" class="icon">
+    <div class="header-container">
+      <h1>Esquina Bermúdez</h1>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
-  <hr>
+
   <main>
-    <div class="descripcion">
-      <p>Bienvenido, usted esta por comprar en Tienda de Dulces, por favor complete el formulario para finalizar con su
-        compra.</p>
-    </div>
-    <div class="form">
-      <form action="#" method="post">
-        <div class="input-form">
-          <label for="nombre">Nombre completo</label>
-          <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
-        </div>
+    <!-- Home -->
+    <section id="home">
+      <h2>Bienvenidos a Esquina Bermúdez</h2>
+      <p>La esquina donde el aroma del café se mezcla con los mejores momentos. Relájate, disfruta y déjate tentar por nuestras especialidades.</p>
+    </section>
 
-        <div class="input-form">
-          <label for="email">Correo electrónico</label>
-          <input type="email" name="email" placeholder="Ingresa tu correo electrónico" required>
-        </div>
+    <!-- Menú -->
+    <section id="menu">
+      <h2>Nuestro Menú</h2>
+      <div id="menu-container" class="menu-grid"></div>
+    </section>
 
-        <div class="input-form">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" name="telefono" placeholder="Ingresa tu número de teléfono" required>
-        </div>
-
-        <div class="input-form">
-          <label for="dulce">Productos</label>
-          <select name="dulce" required>
-            <option value="caramelos">Caramelos</option>
-            <option value="chocolates">Chocolates</option>
-            <option value="gomitas">Gomitas</option>
-            <option value="chicles">Chicles</option>
-            <option value="alfajor">Alfajor</option>
-          </select>
-        </div>
-
-        <div class="input-form">
-          <label for="cantidad">Cantidad</label>
-          <input type="number" name="cantidad" min="1" value="1" required>
-        </div>
-
-        <div class="input-form">
-          <label for="direccion">Dirección de envío</label>
-          <input type="text" name="direccion" placeholder="Ingresa tu dirección de envío" required>
-        </div>
-
-        <div class="input-form">
-          <button type="submit">Realizar Compra</button>
-        </div>
-      </form>
-    </div>
+    <!-- Nosotros -->
+    <section id="nosotros">
+      <h2>Sobre Nosotros</h2>
+      <p>Esquina Bermúdez nació en 2021 con el sueño de ofrecer un rincón cálido donde el café sea más que una bebida: sea una experiencia. Fundado por amantes del café y la repostería casera, nos enorgullece servir productos hechos con pasión y calidad.</p>
+      <h3>Contacto</h3>
+      <p>📍 Dirección: Calle Ficticia 123, Ciudad Dulce<br>
+         📞 Teléfono: +54 9 1234 567890<br>
+         📧 Email: contacto@esquinabermudez.com</p>
+    </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Esquina Bermúdez. Todos los derechos reservados.</p>
+  </footer>
+  <script src="./scripts/app.js"></script>
 </body>
 
 </html>

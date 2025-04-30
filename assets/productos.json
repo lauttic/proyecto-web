@@ -100,27 +100,6 @@
           "descripcion": "Yogurt natural, granola casera y mix de frutas frescas.",
           "precio": 6500,
           "imagen": ""
-        },
-        {
-          "id": 15,
-          "nombre": "Rosca de Pascuas",
-          "descripcion": "Rosca tradicional de Pascuas con crema pastelera.",
-          "precio": 10000,
-          "imagen": ""
-        },
-        {
-          "id": 16,
-          "nombre": "Huevo de Pascua (1 unidad)",
-          "descripcion": "Huevo de chocolate artesanal.",
-          "precio": 12000,
-          "imagen": ""
-        },
-        {
-          "id": 17,
-          "nombre": "Huevos de Pascua (2 unidades)",
-          "descripcion": "Dúo de huevos de chocolate artesanal.",
-          "precio": 21500,
-          "imagen": ""
         }
       ]
     },
@@ -128,101 +107,59 @@
       "categoria": "Cafetería",
       "items": [
         {
-          "id": 18,
+          "id": 15,
           "nombre": "Pocillo",
           "descripcion": "Café expreso intenso en pocillo pequeño.",
           "precio": 2600,
           "imagen": ""
         },
         {
-          "id": 19,
+          "id": 16,
           "nombre": "Jarrito de café",
           "descripcion": "Café servido en jarrito, clásico y suave.",
           "precio": 3000,
           "imagen": ""
         },
         {
-          "id": 20,
-          "nombre": "Jarrito lágrima",
-          "descripcion": "Café con un toque de leche en jarrito.",
-          "precio": 3000,
-          "imagen": ""
-        },
-        {
-          "id": 21,
-          "nombre": "Taza de café",
-          "descripcion": "Café de mayor tamaño, sabor intenso.",
-          "precio": 3500,
-          "imagen": ""
-        },
-        {
-          "id": 22,
-          "nombre": "Taza de cortado",
-          "descripcion": "Café cortado con un toque de leche caliente.",
-          "precio": 3500,
-          "imagen": ""
-        },
-        {
-          "id": 23,
+          "id": 17,
           "nombre": "Taza de café con leche",
           "descripcion": "Mitad café, mitad leche, espumoso.",
           "precio": 3500,
           "imagen": ""
         },
         {
-          "id": 24,
+          "id": 18,
           "nombre": "Taza de lágrima",
           "descripcion": "Más leche que café, versión suave.",
           "precio": 3500,
           "imagen": ""
         },
         {
-          "id": 25,
+          "id": 19,
           "nombre": "Capuchino",
           "descripcion": "Café con espuma de leche, cacao y canela.",
           "precio": 3500,
           "imagen": ""
         },
         {
-          "id": 26,
+          "id": 20,
           "nombre": "Té negro",
           "descripcion": "Infusión de té negro clásico.",
           "precio": 3300,
           "imagen": ""
         },
         {
-          "id": 27,
+          "id": 21,
           "nombre": "Submarino",
           "descripcion": "Chocolate derretido en leche caliente.",
           "precio": 3700,
           "imagen": ""
         },
         {
-          "id": 28,
+          "id": 22,
           "nombre": "Mate cocido",
           "descripcion": "Infusión tradicional argentina.",
           "precio": 3300,
-          "imagen": ""
-        },
-        {
-          "id": 29,
-          "nombre": "Café grande para llevar",
-          "descripcion": "Café take-away tamaño grande.",
-          "precio": 3500,
-          "imagen": ""
-        },
-        {
-          "id": 30,
-          "nombre": "Café chico para llevar",
-          "descripcion": "Café take-away tamaño pequeño.",
-          "precio": 3000,
-          "imagen": ""
-        },
-        {
-          "id": 31,
-          "nombre": "Café en grano x250g",
-          "descripcion": "Café brasileño, tostado en Argentina.",
-          "precio": 19000,
           "imagen": ""
         }
       ]
@@ -231,536 +168,87 @@
       "categoria": "Bebidas sin alcohol",
       "items": [
         {
-          "id": 32,
+          "id": 23,
           "nombre": "Exprimido de naranja",
           "descripcion": "Jugo natural de naranjas recién exprimidas.",
           "precio": 4300,
           "imagen": ""
         },
         {
-          "id": 33,
-          "nombre": "Granita banana y naranja",
-          "descripcion": "Granizado de banana y naranja refrescante.",
-          "precio": 4500,
-          "imagen": ""
-        },
-        {
-          "id": 34,
+          "id": 24,
           "nombre": "Licuado de banana",
           "descripcion": "Licuado clásico de banana y leche.",
           "precio": 4500,
           "imagen": ""
         },
         {
-          "id": 35,
+          "id": 25,
           "nombre": "Limonada",
           "descripcion": "Limonada fresca y natural.",
           "precio": 4500,
           "imagen": ""
         },
         {
-          "id": 36,
-          "nombre": "Pomelada",
-          "descripcion": "Bebida natural de pomelo.",
-          "precio": 4500,
-          "imagen": ""
-        },
-        {
-          "id": 37,
+          "id": 26,
           "nombre": "Café frío",
           "descripcion": "Café frío ideal para días calurosos.",
           "precio": 4500,
           "imagen": ""
         },
         {
-          "id": 38,
+          "id": 27,
           "nombre": "Agua con gas 500ml",
           "descripcion": "Agua mineral gasificada.",
           "precio": 2900,
           "imagen": ""
         },
         {
-          "id": 39,
+          "id": 28,
           "nombre": "Agua sin gas 500ml",
           "descripcion": "Agua mineral natural.",
           "precio": 2900,
           "imagen": ""
         },
         {
-          "id": 40,
+          "id": 29,
           "nombre": "Sifón soda",
           "descripcion": "Clásico sifón de soda.",
           "precio": 3000,
           "imagen": ""
         },
         {
-          "id": 41,
+          "id": 30,
           "nombre": "Levité pomelo 500ml",
           "descripcion": "Bebida Levité sabor pomelo.",
           "precio": 3100,
           "imagen": ""
         },
         {
-          "id": 42,
+          "id": 31,
           "nombre": "Levité manzana 500ml",
           "descripcion": "Bebida Levité sabor manzana.",
           "precio": 3100,
           "imagen": ""
         },
         {
-          "id": 43,
-          "nombre": "Levité naranja 500ml",
-          "descripcion": "Bebida Levité sabor naranja.",
-          "precio": 3100,
-          "imagen": ""
-        },
-        {
-          "id": 44,
+          "id": 32,
           "nombre": "Coca Cola 500ml",
           "descripcion": "Gaseosa Coca-Cola tradicional.",
           "precio": 3400,
           "imagen": ""
         },
         {
-          "id": 45,
+          "id": 33,
           "nombre": "Coca Zero 500ml",
           "descripcion": "Gaseosa Coca-Cola sin azúcar.",
           "precio": 3400,
           "imagen": ""
         },
         {
-          "id": 46,
+          "id": 34,
           "nombre": "Sprite 500ml",
           "descripcion": "Gaseosa Sprite sabor lima-limón.",
           "precio": 3400,
-          "imagen": ""
-        },
-        {
-          "id": 47,
-          "nombre": "Coca Cola 1.75L",
-          "descripcion": "Botella grande de Coca-Cola tradicional.",
-          "precio": 5500,
-          "imagen": ""
-        },
-        {
-          "id": 48,
-          "nombre": "Coca Zero 1.75L",
-          "descripcion": "Botella grande de Coca-Cola sin azúcar.",
-          "precio": 5500,
-          "imagen": ""
-        },
-        {
-          "id": 49,
-          "nombre": "Sprite 1.75L",
-          "descripcion": "Botella grande de Sprite.",
-          "precio": 5500,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Bebidas con alcohol",
-      "items": [
-        {
-          "id": 50,
-          "nombre": "Cerveza Heineken",
-          "precio": 4800,
-          "imagen": ""
-        },
-        {
-          "id": 51,
-          "nombre": "Vermu Cinzano",
-          "descripcion": "con pomelo o soda",
-          "precio": 5200,
-          "imagen": ""
-        },
-        {
-          "id": 52,
-          "nombre": "Fernet",
-          "precio": 5200,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Panificados",
-      "items": [
-        {
-          "id": 53,
-          "nombre": "Ciabatta",
-          "precio": 900,
-          "imagen": ""
-        },
-        {
-          "id": 54,
-          "nombre": "Focaccia al corte Clásica",
-          "precio": 2000,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Salados",
-      "items": [
-        {
-          "id": 55,
-          "nombre": "Medialuna de jamón y queso",
-          "precio": 2400,
-          "imagen": ""
-        },
-        {
-          "id": 56,
-          "nombre": "Panceta con tostadas",
-          "precio": 6900,
-          "imagen": ""
-        },
-        {
-          "id": 57,
-          "nombre": "Tostado huevos revueltos",
-          "precio": 7900,
-          "imagen": ""
-        },
-        {
-          "id": 58,
-          "nombre": "Tostado Focaccia jamón y queso",
-          "descripcion": "¡Único en el mundo!",
-          "precio": 6900,
-          "imagen": ""
-        },
-        {
-          "id": 59,
-          "nombre": "Tostado Focaccia jamón crudo",
-          "descripcion": "Jamón crudo, queso tybo, rúcula y tomate. ¡Único en el mundo!",
-          "precio": 8100,
-          "imagen": ""
-        },
-        {
-          "id": 60,
-          "nombre": "Cornetto con jamón y queso",
-          "precio": 6300,
-          "imagen": ""
-        },
-        {
-          "id": 61,
-          "nombre": "Cornetto con jamón crudo",
-          "descripcion": "Jamón crudo, queso tybo, rúcula y tomate.",
-          "precio": 7800,
-          "imagen": ""
-        },
-        {
-          "id": 62,
-          "nombre": "Calentito de ciabatta",
-          "descripcion": "Jamón crudo, queso cremoso, rúcula y tomate. ¡Sale calentito!",
-          "precio": 8100,
-          "imagen": ""
-        },
-        {
-          "id": 63,
-          "nombre": "Roll de jamon y queso",
-          "precio": 4400,
-          "imagen": ""
-        },
-        {
-          "id": 64,
-          "nombre": "Tostada palta y huevo",
-          "descripcion": "Tostada gigante en pan de focaccia con queso crema, huevos revueltos, palta y semillas.",
-          "precio": 6300,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "SIN TACC",
-      "items": [
-        {
-          "id": 65,
-          "nombre": "Tostado jamón y queso SIN TACC",
-          "descripcion": "x2 unidades",
-          "precio": 6900,
-          "imagen": ""
-        },
-        {
-          "id": 66,
-          "nombre": "Tostado jamón crudo SIN TACC",
-          "descripcion": "Jamón crudo, queso tybo, rúcula y tomate. x2 unidades.",
-          "precio": 8100,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Sánguches de Focaccia (Mediodía)",
-      "items": [
-        {
-          "id": 67,
-          "nombre": "Mortadela con pistacho con papas fritas",
-          "descripcion": "Mortadela con pistachos, queso cremoso, tomate, rúcula y mayonesa de la casa.",
-          "precio": 17900,
-          "imagen": ""
-        },
-        {
-          "id": 68,
-          "nombre": "Jamón crudo con papas fritas",
-          "descripcion": "Jamón crudo, queso tybo, tomates deshidratados, rúcula, oliva y mayonesa de la casa.",
-          "precio": 17900,
-          "imagen": ""
-        },
-        {
-          "id": 69,
-          "nombre": "Pollo en escabeche con papas fritas",
-          "descripcion": "Pollo en escabeche, queso tybo, tomate , lechuga y crema de ajo y verdeo.",
-          "precio": 17900,
-          "imagen": ""
-        },
-        {
-          "id": 70,
-          "nombre": "Matambre de ternera casero con papas fritas",
-          "descripcion": "Matambre de carne casero, chimi suave, queso provoleta derretido, tomate y rúcula.",
-          "precio": 17900,
-          "imagen": ""
-        },
-        {
-          "id": 71,
-          "nombre": "Berenjenas en escabeche con papas fritas",
-          "descripcion": "Berenjenas en escabeche, nueces, tomate, rucula y pasta de aceitunas negras.",
-          "precio": 17900,
-          "imagen": ""
-        },
-        {
-          "id": 72,
-          "nombre": "César Crocante con papas fritas",
-          "descripcion": "Crocante de pollo, queso sardo fresco, lechuga y salsa césar.",
-          "precio": 17900,
-          "imagen": ""
-        },
-        {
-          "id": 73,
-          "nombre": "Clásico Completo de carne con papas fritas",
-          "descripcion": "Milanesa de carne, jamón, queso tybo, huevo, lechuga y tomate.",
-          "precio": 17900,
-          "imagen": ""
-        },
-        {
-          "id": 74,
-          "nombre": "Clásico Completo de pollo con papas fritas",
-          "descripcion": "Milanesa de pollo, jamón, queso tybo, huevo, lechuga y tomate.",
-          "precio": 17900,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Todo el día",
-      "items": [
-        {
-          "id": 75,
-          "nombre": "Jamón crudo sin papas fritas",
-          "precio": 15990,
-          "imagen": ""
-        },
-        {
-          "id": 76,
-          "nombre": "Pollo en escabeche sin papas fritas",
-          "precio": 15990,
-          "imagen": ""
-        },
-        {
-          "id": 77,
-          "nombre": "Mortadela con pistachos sin papas fritas",
-          "precio": 15990,
-          "imagen": ""
-        },
-        {
-          "id": 78,
-          "nombre": "Berenjenas en escabeche sin papas fritas",
-          "precio": 15990,
-          "imagen": ""
-        },
-        {
-          "id": 79,
-          "nombre": "Matambre de ternera casero sin papas fritas",
-          "precio": 15990,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Menú mediodía - Platos chicos",
-      "items": [
-        {
-          "id": 80,
-          "nombre": "Empanada jamón y queso",
-          "precio": 2400,
-          "imagen": ""
-        },
-        {
-          "id": 81,
-          "nombre": "Empanada Osobuco",
-          "precio": 2600,
-          "imagen": ""
-        },
-        {
-          "id": 82,
-          "nombre": "Empanada pollo",
-          "precio": 2600,
-          "imagen": ""
-        },
-        {
-          "id": 83,
-          "nombre": "Tabla de empanadas x3",
-          "precio": 7400,
-          "imagen": ""
-        },
-        {
-          "id": 84,
-          "nombre": "Las milas de Euge",
-          "descripcion": "Huevos fritos, milanesas de carne picada y mayo de alcaparras.",
-          "precio": 8100,
-          "imagen": ""
-        },
-        {
-          "id": 85,
-          "nombre": "Escabeches",
-          "descripcion": "De berenjenas, pollo acompañados con focaccia",
-          "precio": 6900,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Menú mediodía - Platos grandes",
-      "items": [
-        {
-          "id": 86,
-          "nombre": "Tortilla de papa clásica",
-          "descripcion": "Para compartir.",
-          "precio": 15900,
-          "imagen": ""
-        },
-        {
-          "id": 87,
-          "nombre": "Tortilla rellena de jamón y queso",
-          "descripcion": "Para compartir.",
-          "precio": 18990,
-          "imagen": ""
-        },
-        {
-          "id": 88,
-          "nombre": "Tortilla rellena chorizo colorado y queso",
-          "descripcion": "Para compartir.",
-          "precio": 18990,
-          "imagen": ""
-        },
-        {
-          "id": 89,
-          "nombre": "Milanesa pollo clásica",
-          "descripcion": "con papas fritas o ensalada mixta (lechuga, tomate y cebolla).",
-          "precio": 11200,
-          "imagen": ""
-        },
-        {
-          "id": 90,
-          "nombre": "Milanesa peceto clásica",
-          "descripcion": "con papas fritas o ensalada mixta (lechuga, tomate y cebolla).",
-          "precio": 11200,
-          "imagen": ""
-        },
-        {
-          "id": 91,
-          "nombre": "Milanesa pollo napolitana",
-          "descripcion": "con papas fritas o ensalada mixta (lechuga, tomate y cebolla).",
-          "precio": 13600,
-          "imagen": ""
-        },
-        {
-          "id": 92,
-          "nombre": "Milanesa peceto napolitana",
-          "descripcion": "con papas fritas o ensalada mixta (lechuga, tomate y cebolla).",
-          "precio": 13600,
-          "imagen": ""
-        },
-        {
-          "id": 93,
-          "nombre": "Milanesa pollo fugazzeta",
-          "descripcion": "con papas fritas o ensalada mixta (lechuga, tomate y cebolla).",
-          "precio": 13200,
-          "imagen": ""
-        },
-        {
-          "id": 94,
-          "nombre": "Milanesa peceto fugazzeta",
-          "descripcion": "con papas fritas o ensalada mixta (lechuga, tomate y cebolla).",
-          "precio": 13200,
-          "imagen": ""
-        },
-        {
-          "id": 95,
-          "nombre": "Milanesa pollo a caballo",
-          "precio": 13200,
-          "imagen": ""
-        },
-        {
-          "id": 96,
-          "nombre": "Milanesa peceto a caballo",
-          "descripcion": "con papas fritas o ensalada mixta (lechuga, tomate y cebolla).",
-          "precio": 13200,
-          "imagen": ""
-        },
-        {
-          "id": 97,
-          "nombre": "Milanesa peceto tomates",
-          "descripcion": "Queso tybo con tomates secos y orégano.",
-          "precio": 13600,
-          "imagen": ""
-        },
-        {
-          "id": 98,
-          "nombre": "Milanesa pollo tomates",
-          "descripcion": "Queso tybo con tomates secos y orégano.",
-          "precio": 13600,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Ensaladas",
-      "items": [
-        {
-          "id": 99,
-          "nombre": "Ensalada mixta chica",
-          "descripcion": "Lechuga, tomate y cebolla. Porción individual.",
-          "precio": 6900,
-          "imagen": ""
-        },
-        {
-          "id": 100,
-          "nombre": "Ensalada Rúcula tomate y queso chica",
-          "precio": 6900,
-          "imagen": ""
-        },
-        {
-          "id": 101,
-          "nombre": "Ensalada César",
-          "descripcion": "Pollo crocante, queso sardo fresco, lechuga y salsa césar.",
-          "precio": 13000,
-          "imagen": ""
-        },
-        {
-          "id": 102,
-          "nombre": "Ensalada Camila Mediterránea",
-          "descripcion": "Rúcula, tomates secos, parmesano, nueces, papas fritas, y croutones.",
-          "precio": 13000,
-          "imagen": ""
-        }
-      ]
-    },
-    {
-      "categoria": "Tortas",
-      "items": [
-        {
-          "id": 103,
-          "nombre": "Flan mixto",
-          "precio": 5000,
           "imagen": ""
         }
       ]
