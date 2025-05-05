@@ -5,24 +5,34 @@
   <meta charset="UTF-8">
   <title>Esquina Bermúdez</title>
   <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
   <header>
     <div class="header-container">
-      <h1>Esquina Bermúdez</h1>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="#" data-section="home">Home</a></li>
-          <li><a href="#" data-section="menu">Menú</a></li>
-          <li><a href="#" data-section="nosotros">Nosotros</a></li>
-        </ul>
-      </nav>
+      <div class="header-left">
+        <img src="/assets/logo-cafe.png" alt="Logo" class="header-logo" />
+      </div>
+      <div class="header-center">
+        <h1>Esquina Bermúdez</h1>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="#" data-section="home">Home</a></li>
+            <li><a href="#" data-section="menu">Menú</a></li>
+            <li><a href="#" data-section="nosotros">Nosotros</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-right">
+        <a href="https://instagram.com/esquinabermudez" target="_blank" class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
-    <!-- Home -->
     <section id="home">
       <h2>Bienvenidos a Esquina Bermúdez</h2>
       <p class="home-intro">La esquina donde el aroma del café se mezcla con los mejores momentos. Relájate, disfruta y
@@ -44,13 +54,21 @@
       <img src="./assets/tazon.jpg" alt="Taza de café sobre mesa de madera" class="home-fullwidth-img">
     </section>
 
-    <!-- Menú -->
     <section id="menu">
-      <h2>Nuestro Menú</h2>
+      <div class="menu">
+        <h2>Nuestro Menú</h2>
+        <div class="menu-filter">
+          <input type="text" id="search-input" placeholder="Buscar por nombre..." />
+          <select id="price-sort">
+            <option value="">Ordenar por</option>
+            <option value="asc">Precio: menor a mayor</option>
+            <option value="desc">Precio: mayor a menor</option>
+          </select>
+        </div>
+      </div>
       <div id="menu-container" class="menu-grid"></div>
     </section>
 
-    <!-- Nosotros -->
     <section id="nosotros">
       <h2>Sobre Nosotros</h2>
       <p>Esquina Bermúdez nació en 2021 con el sueño de ofrecer un rincón cálido donde el café sea más que una bebida:

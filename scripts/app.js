@@ -1,36 +1,49 @@
 const menuContainer = document.getElementById("menu-container");
+const searchInput = document.getElementById("search-input");
 const navLinks = document.querySelectorAll(".nav-menu a");
 const sections = document.querySelectorAll("main section");
-console.log(sections)
+const priceSortSelect = document.getElementById("price-sort");
+
+let menuCompleto = []; 
 
 fetch('/assets/productos.json')
   .then(response => response.json())
   .then(productos => {
-    renderMenu(productos);
+    menuCompleto = productos.menu.flatMap(categoria => categoria.items);  // se forma un array de objetos plano
+    renderMenu(menuCompleto);
   })
   .catch(error => {
     console.error("Error al cargar el menú:", error);
   });
 
-function renderMenu(menuData) {
-  menuData.menu.forEach(categoria => {
-    categoria.items.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "menu-card";
+function renderMenu(items) {
+  menuContainer.innerHTML = "";
 
+  items.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "menu-card";
 
-      card.innerHTML = `
-        <img src="${item.imagen}" alt="${item.nombre}">
-        <h3>${item.nombre}</h3>
-        <p>${item.descripcion}</p>
-        <div class="price">$${item.precio}</div>
-        <button>Agregar</button>
-      `;
+    card.innerHTML = `
+      <img src="${item.imagen}" alt="${item.nombre}">
+      <h3>${item.nombre}</h3>
+      <p>${item.descripcion}</p>
+      <div class="price">$${item.precio}</div>
+      <button>Agregar</button>
+    `;
 
-      menuContainer.appendChild(card);
-    });
+    menuContainer.appendChild(card);
   });
 }
+
+searchInput.addEventListener("input", () => {
+  const texto = searchInput.value.toLowerCase();
+
+  const filtrados = menuCompleto.filter(item =>
+    item.nombre.toLowerCase().includes(texto)
+  );
+
+  renderMenu(filtrados);
+});
 
 function mostrarSeccion(id) {
   sections.forEach(section => {
@@ -42,11 +55,25 @@ mostrarSeccion("home");
 
 navLinks.forEach(link => {
   link.addEventListener("click", e => {
-    e.preventDefault();  // evita que recargue la pagina
+    e.preventDefault();
     const sectionId = link.getAttribute("data-section");
     mostrarSeccion(sectionId);
 
     navLinks.forEach(l => l.classList.remove("active"));
     link.classList.add("active");
   });
+});
+
+priceSortSelect.addEventListener("change", () => {
+  const orden = priceSortSelect.value;
+  
+  let productosOrdenados = [...menuCompleto]; 
+  
+  if (orden === "asc") {
+    productosOrdenados.sort((a, b) => a.precio - b.precio);
+  } else if (orden === "desc") {
+    productosOrdenados.sort((a, b) => b.precio - a.precio);
+  }
+  
+  renderMenu(productosOrdenados);
 });
