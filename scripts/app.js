@@ -32,6 +32,7 @@ function renderMenu(items) {
 
     menuContainer.appendChild(card);
   });
+  console.log("render")
 }
 
 searchInput.addEventListener("input", () => {
