@@ -79,7 +79,7 @@ priceSortSelect.addEventListener("change", () => {
 
 window.addEventListener("load", () => {
     const modal = document.getElementById("oferta-modal");
-    const cerrar = document.querySelector(".cerrar");
+    const cerrar = document.querySelector(".close");
 
     modal.style.display = "flex";
 
