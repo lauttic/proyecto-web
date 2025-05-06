@@ -4,7 +4,7 @@ const navLinks = document.querySelectorAll(".nav-menu a");
 const sections = document.querySelectorAll("main section");
 const priceSortSelect = document.getElementById("price-sort");
 
-let menuCompleto = []; 
+let menuCompleto = [];
 
 fetch('/assets/productos.json')
   .then(response => response.json())
@@ -12,9 +12,6 @@ fetch('/assets/productos.json')
     menuCompleto = productos.menu.flatMap(categoria => categoria.items);  // se forma un array de objetos plano
     renderMenu(menuCompleto);
   })
-  .catch(error => {
-    console.error("Error al cargar el menú:", error);
-  });
 
 function renderMenu(items) {
   menuContainer.innerHTML = "";
@@ -25,9 +22,11 @@ function renderMenu(items) {
 
     card.innerHTML = `
       <img src="${item.imagen}" alt="${item.nombre}">
-      <h3>${item.nombre}</h3>
-      <p>${item.descripcion}</p>
-      <div class="price">$${item.precio}</div>
+      <div class="menu-card-content">
+        <h3>${item.nombre}</h3>
+        <p>${item.descripcion}</p>
+        <div class="price">$${item.precio}</div>
+      </div>
       <button>Agregar</button>
     `;
 
@@ -66,14 +65,25 @@ navLinks.forEach(link => {
 
 priceSortSelect.addEventListener("change", () => {
   const orden = priceSortSelect.value;
-  
-  let productosOrdenados = [...menuCompleto]; 
-  
+
+  let productosOrdenados = [...menuCompleto];
+
   if (orden === "asc") {
     productosOrdenados.sort((a, b) => a.precio - b.precio);
   } else if (orden === "desc") {
     productosOrdenados.sort((a, b) => b.precio - a.precio);
   }
-  
+
   renderMenu(productosOrdenados);
+});
+
+window.addEventListener("load", () => {
+    const modal = document.getElementById("oferta-modal");
+    const cerrar = document.querySelector(".cerrar");
+
+    modal.style.display = "flex";
+
+    cerrar.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
 });
