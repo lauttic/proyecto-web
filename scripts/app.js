@@ -6,7 +6,7 @@ const priceSortSelect = document.getElementById("price-sort");
 
 let menuCompleto = [];
 
-fetch('/assets/productos.json')
+fetch('./assets/productos.json')
   .then(response => response.json())
   .then(productos => {
     menuCompleto = productos.menu.flatMap(categoria => categoria.items);  // se forma un array de objetos plano
