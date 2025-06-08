@@ -4,7 +4,29 @@ const navLinks = document.querySelectorAll(".nav-menu a");
 const sections = document.querySelectorAll("main section");
 const priceSortSelect = document.getElementById("price-sort");
 
+// AIRTABLE
+const baseId = 'appmPHgEdsk4lQoQo';
+const tableName = "Products";
+const apiKey = 'pat2115ywOX7HW3bl.c375ae6e12f43929ad6e8bc7099818cd03a30df492881529c789c3b7b7861a9c';
+const url = `https://api.airtable.com/v0/${baseId}/${tableName}`;
+
+const headers = {
+  "Authorization": `Bearer ${apiKey}`,
+  "Content-Type": "application/json",
+};
+
 let menuCompleto = [];
+
+async function getAllRecords() {
+  const res = await fetch(url, {
+    headers: headers
+  });
+
+  const data = await res.json();
+  console.log("airtable",data.records); 
+}
+
+getAllRecords();
 
 fetch('assets/productos.json')
   .then(response => response.json())
