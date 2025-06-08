@@ -15,6 +15,7 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 header {
@@ -374,4 +375,100 @@ footer {
   font-weight: bold;
   cursor: pointer;
   color: #333;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 17px; 
+    overflow-x: hidden;
+  }
+
+  main {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  #home {
+    width: 95%;
+  }
+  
+  header {
+    padding: 5px 15px;
+  }
+
+  .header-container {
+    flex-wrap: nowrap;          
+    flex-direction: row;        
+    justify-content: space-between; 
+    align-items: center;  
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    flex: 1 1 auto;            
+    min-width: 0; 
+  }
+
+  .header-center {
+    text-align: center;        
+    flex-grow: 2;            
+  }
+
+  .header-logo {
+    height: 60px;              
+  }
+
+  
+  .nav-menu {
+      gap: 15px;                
+    font-size: 14px;  
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-filter {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  #search-input,
+  #price-sort {
+    width: 90%;
+  }
+
+  .menu-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-card {
+    width: 90%;
+    max-width: none;
+  }
+
+  .nosotros-image {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p, .home-intro {
+    font-size: 1.1rem;
+  }
 }
