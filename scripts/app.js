@@ -17,53 +17,49 @@ const headers = {
 
 let menuCompleto = [];
 
+getAllRecords();
+
 async function getAllRecords() {
   const res = await fetch(url, {
     headers: headers
   });
 
-  const data = await res.json();
-  console.log("airtable",data.records); 
+  const dataProduct = await res.json();
+  const sortedRecords = dataProduct.records.sort((a, b) => {
+    return a.fields.ID - b.fields.ID;
+  });
+  menuCompleto = sortedRecords;
+  renderMenu(sortedRecords);
 }
-
-getAllRecords();
-
-fetch('assets/productos.json')
-  .then(response => response.json())
-  .then(productos => {
-    menuCompleto = productos.menu.flatMap(categoria => categoria.items);  // se forma un array de objetos plano
-    renderMenu(menuCompleto);
-  })
 
 function renderMenu(items) {
   menuContainer.innerHTML = "";
 
   items.forEach(item => {
+    const product = item.fields;
     const card = document.createElement("div");
     card.className = "menu-card";
 
     card.innerHTML = `
-      <img src="${item.imagen}" alt="${item.nombre}">
+      <img src="/${product.Imagen}" alt="${product.Nombre}">
       <div class="menu-card-content">
-        <h3>${item.nombre}</h3>
-        <p>${item.descripcion}</p>
-        <div class="price">$${item.precio}</div>
+        <h3>${product.Nombre}</h3>
+        <p>${product.Descripción}</p>
+        <div class="price">$${product.Precio}</div>
       </div>
-      <button>Agregar</button>
+      <button class="add-btn" data-id="${product.ID}">Agregar</button>
     `;
 
     menuContainer.appendChild(card);
   });
-  console.log("render")
 }
 
 searchInput.addEventListener("input", () => {
   const texto = searchInput.value.toLowerCase();
-
-  const filtrados = menuCompleto.filter(item =>
-    item.nombre.toLowerCase().includes(texto)
-  );
-
+  const filtrados = menuCompleto.filter(item => {
+    const product = item.fields;
+    return product.Nombre.toLowerCase().includes(texto)
+  });
   renderMenu(filtrados);
 });
 
@@ -92,21 +88,21 @@ priceSortSelect.addEventListener("change", () => {
   let productosOrdenados = [...menuCompleto];
 
   if (orden === "asc") {
-    productosOrdenados.sort((a, b) => a.precio - b.precio);
+    productosOrdenados.sort((a, b) => a.fields.Precio - b.fields.Precio);
   } else if (orden === "desc") {
-    productosOrdenados.sort((a, b) => b.precio - a.precio);
+    productosOrdenados.sort((a, b) => b.fields.Precio - a.fields.Precio);
   }
 
   renderMenu(productosOrdenados);
 });
 
 window.addEventListener("load", () => {
-    const modal = document.getElementById("oferta-modal");
-    const cerrar = document.querySelector(".close");
+  const modal = document.getElementById("oferta-modal");
+  const cerrar = document.querySelector(".close");
 
-    modal.style.display = "flex";
+  modal.style.display = "flex";
 
-    cerrar.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
+  cerrar.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
 });
