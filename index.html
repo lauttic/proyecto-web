@@ -26,8 +26,15 @@
         </nav>
       </div>
       <div class="header-right">
-        <a href="https://instagram.com/esquinabermudez" target="_blank" class="social-icon">
+        <a href="https://instagram.com/esquinabermudez" target="_blank" class="icons">
           <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" title="Ver carrito" class="icons" data-section="cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count">0</span>
+        </a>
+        <a href="#" title="Iniciar sesión" class="icons" data-section="login">
+          <i class="fas fa-user"></i>
         </a>
       </div>
     </div>
@@ -53,8 +60,9 @@
       </div>
       <div class="home-flex">
         <div class="home-text">
-        <p class="cute"><b>No es solo una cafetería, es tu nuevo lugar favorito. Vení a conocernos y descubrí por qué cada rincón de
-          Esquina Bermúdez tiene algo especial para vos.</b></p>
+          <p class="cute"><b>No es solo una cafetería, es tu nuevo lugar favorito. Vení a conocernos y descubrí por qué
+              cada rincón de
+              Esquina Bermúdez tiene algo especial para vos.</b></p>
         </div>
         <img src="./assets/tazon.jpg" alt="Taza de café sobre mesa de madera" class="home-fullwidth-img">
       </div>
@@ -104,6 +112,60 @@
         <img src="assets/nosotros.png" alt="Equipo EB" class="nosotros-img">
       </div>
     </section>
+
+    <section id="cart">
+      <div class="cart">
+        <h2>Carrito</h2>
+        <div id="cart-items" class="menu-grid"></div>
+        <p id="cart-empty">El carrito está vacío.</p>
+      </div>
+    </section>
+
+    <section id="login">
+      <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+          <input type="text" id="username" placeholder="Usuario" required>
+          <input type="password" id="password" placeholder="Contraseña" required>
+          <button type="submit">Ingresar</button>
+          <p id="login-error" class="error-message" style="display: none;">Usuario o contraseña incorrectos.</p>
+        </form>
+      </div>
+      <div id="user-info" style="display:none;">
+        <h2>Bienvenido, <span id="nombre-usuario"></span></h2>
+        <button id="logout-btn">Cerrar sesión</button>
+      </div>
+    </section>
+
+    <section id="edit-product" class="form-section" style="display: none;">
+      <h2>Editar Producto</h2>
+      <form class="app-form edit-product-form">
+        <input type="hidden" class="input-id" />
+
+        <label>
+          Nombre:
+          <input type="text" class="input-nombre" required />
+        </label>
+
+        <label>
+          Descripción:
+          <textarea class="input-descripcion" required></textarea>
+        </label>
+
+        <label>
+          Precio:
+          <input type="number" class="input-precio" step="0.01" required />
+        </label>
+
+        <label>
+          Imagen URL:
+          <input type="text" class="input-imagen" required />
+        </label>
+
+        <button type="submit" class="btn-submit">Guardar Cambios</button>
+        <button type="button" class="btn-cancel">Cancelar</button>
+      </form>
+    </section>
   </main>
 
   <footer>
@@ -118,8 +180,9 @@
       <img src="assets/oferta.jpg" alt="ofertaza">
     </div>
   </div>
-  <script src="./scripts/app.js"></script>
+  <script src="./scripts/login.js"></script>
   <script src="./scripts/cart.js"></script>
+  <script src="./scripts/app.js"></script>
 </body>
 
 </html>
