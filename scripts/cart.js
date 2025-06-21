@@ -14,10 +14,6 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   actualizarContadorCarrito();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  actualizarContadorCarrito();
   renderCarrito();
 });
 
@@ -201,7 +197,7 @@ document.querySelector(".finalizar-btn").addEventListener("click", () => {
     return;
   }
 
-  document.getElementById("pedido-modal").classList.remove("hidden");
+document.getElementById("pedido-modal").style.display = "flex";
 });
 
 document.getElementById("enviar-pedido").addEventListener("click", () => {
@@ -213,7 +209,7 @@ document.getElementById("enviar-pedido").addEventListener("click", () => {
     return;
   }
 
-  document.getElementById("pedido-modal").classList.add("hidden");
+document.getElementById("pedido-modal").style.display = "none";
   document.getElementById("pedido-popup").classList.remove("hidden");
 
   localStorage.removeItem("carrito");
