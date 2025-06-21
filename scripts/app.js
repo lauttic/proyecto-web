@@ -47,13 +47,15 @@ function renderMenu(items) {
     card.className = "menu-card";
 
     card.innerHTML = `
-      <img src="./${product.Imagen}" alt="${product.Nombre}">
+      <img src="${product.Imagen.startsWith('http') ? product.Imagen : './' + product.Imagen}" alt="${product.Nombre}">
       <div class="menu-card-content">
         <h3>${product.Nombre}</h3>
         <p>${product.Descripción}</p>
         <div class="price">$${product.Precio}</div>
       </div>
-      ${loggedIn ? `<button class="edit-btn" data-id="${product.ID}">Editar</button>` : `<button class="add-btn" data-id="${product.ID}">Agregar</button>`}
+      <div class="btns-product">
+      ${loggedIn ? `<button class="edit-btn" data-id="${product.ID}">Editar producto</button><button class="delete-btn" data-id="${product.ID}">Eliminar producto</button>` : `<button class="add-btn" data-id="${product.ID}">Agregar</button>`}
+      </div>
     `
     menuContainer.appendChild(card);
   });
@@ -66,6 +68,22 @@ function renderMenu(items) {
         abrirEdicion(productId);
       });
     });
+  }
+
+  if (loggedIn) {
+    const deleteButtons = menuContainer.querySelectorAll(".delete-btn");
+    deleteButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const productId = button.getAttribute("data-id");
+        eliminarProductoPorID(productId);
+      });
+    });
+  }
+
+  if (loggedIn) {
+    document.getElementById("admin-controls").style.display = "block";
+  } else {
+    document.getElementById("admin-controls").style.display = "none";
   }
 }
 
@@ -86,6 +104,37 @@ function mostrarSeccion(id) {
       section.style.display = "none";
     }
   });
+}
+
+function mostrarModalNuevoError(mensaje) {
+  const modal = document.getElementById("modal-nuevo-error");
+  const texto = document.getElementById("modal-nuevo-error-texto");
+  const btnOk = document.getElementById("btn-nuevo-error-ok");
+
+  texto.textContent = mensaje;
+  modal.style.display = "flex";
+
+  const cerrar = () => {
+    modal.style.display = "none";
+    btnOk.removeEventListener("click", cerrar);
+  };
+
+  btnOk.addEventListener("click", cerrar);
+}
+
+function mostrarModalNuevoExito(callback) {
+  const modal = document.getElementById("modal-nuevo-exito");
+  const btnOk = document.getElementById("btn-nuevo-exito-ok");
+
+  modal.style.display = "flex";
+
+  const cerrar = () => {
+    modal.style.display = "none";
+    btnOk.removeEventListener("click", cerrar);
+    if (callback) callback();
+  };
+
+  btnOk.addEventListener("click", cerrar);
 }
 
 mostrarSeccion("home");
@@ -126,56 +175,84 @@ window.addEventListener("load", () => {
   });
 });
 
-editForm.addEventListener("submit", async (e) => {
+document.getElementById("form-nuevo-producto").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const idProducto = document.querySelector(".input-id").value;
-  const nombre = document.querySelector(".input-nombre").value.trim();
-  const descripcion = document.querySelector(".input-descripcion").value.trim();
-  const precio = parseFloat(document.querySelector(".input-precio").value);
-  const imagen = document.querySelector(".input-imagen").value.trim();
+  const nombre = document.getElementById("nuevo-nombre").value.trim();
+  const descripcion = document.getElementById("nuevo-descripcion").value.trim();
+  const precio = parseFloat(document.getElementById("nuevo-precio").value);
+  const urlImagen = document.getElementById("nuevo-imagen").value.trim();
 
-  const recordToUpdate = menuCompleto.find(item => item.fields.ID == idProducto);
-
-  if (!recordToUpdate) {
-    return alert("No se encontró el producto para actualizar");
+  function esUrlValida(url) {
+    try {
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
   }
 
-  const recordId = recordToUpdate.id;
+  const imagenFinal = esUrlValida(urlImagen) ? urlImagen : "https://via.placeholder.com/150";
 
-  const updateData = {
+  if (!nombre || !descripcion || isNaN(precio)) {
+    mostrarModalNuevoError("Completa todos los campos correctamente");
+    return;
+  }
+
+  const ultimoID = menuCompleto.reduce((max, item) => {
+    return item.fields.ID > max ? item.fields.ID : max;
+  }, 0);
+
+  const nuevoID = ultimoID + 1;
+
+  const nuevoProducto = {
     fields: {
+      ID: nuevoID,
       Nombre: nombre,
       Descripción: descripcion,
       Precio: precio,
-      Imagen: imagen
+      Imagen: imagenFinal,
     }
   };
 
   try {
-    const response = await fetch(`${url}/${recordId}`, {
-      method: "PATCH",
+    const response = await fetch(url, {
+      method: "POST",
       headers: headers,
-      body: JSON.stringify(updateData)
+      body: JSON.stringify(nuevoProducto),
     });
 
     if (!response.ok) {
-      throw new Error("Error al actualizar el producto");
+      throw new Error("Error al agregar producto");
     }
 
-    const updatedRecord = await response.json();
+    const data = await response.json();
+    menuCompleto.push(data);
 
-    const index = menuCompleto.findIndex(item => item.id === recordId);
-    if (index !== -1) {
-      menuCompleto[index] = updatedRecord;
-    }
-
-    alert("Producto actualizado correctamente");
-
-    mostrarSeccion("home");
+    document.getElementById("modal-nuevo-producto").style.display = "none";
+    e.target.reset();
     renderMenu(menuCompleto);
 
+    mostrarModalNuevoExito();
+
   } catch (error) {
-    alert("Error al actualizar el producto: " + error.message);
+    mostrarModalNuevoError("Error: " + error.message);
   }
 });
+
+document.getElementById("btn-nuevo-producto").addEventListener("click", () => {
+  document.getElementById("modal-nuevo-producto").style.display = "flex";
+});
+
+document.getElementById("cerrar-nuevo-producto").addEventListener("click", () => {
+  document.getElementById("modal-nuevo-producto").style.display = "none";
+});
+
+function esUrlValida(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}

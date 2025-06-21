@@ -53,8 +53,13 @@ function renderCarrito() {
 
   cartItemsContainer.innerHTML = "";
 
+  const cartTotalContainer = document.querySelector(".cart-total");
+  const totalText = document.getElementById("total-amount");
+  let total = 0;
+
   if (carrito.cantidad === 0 || carrito.products.length === 0) {
     cartEmptyMsg.style.display = "block";
+    if (totalText) totalText.textContent = "Total: $0";
     return;
   } else {
     cartEmptyMsg.style.display = "none";
@@ -62,6 +67,7 @@ function renderCarrito() {
 
   carrito.products.forEach((item, index) => {
     const product = item.fields;
+    total += product.Precio;
 
     const card = document.createElement("div");
     card.className = "menu-card";
@@ -78,6 +84,8 @@ function renderCarrito() {
 
     cartItemsContainer.appendChild(card);
   });
+
+  if (totalText) totalText.textContent = `Total: $${total}`;
 
   const removeButtons = cartItemsContainer.querySelectorAll(".remove-btn");
   removeButtons.forEach(button => {
@@ -115,3 +123,104 @@ function abrirEdicion(productId) {
 
   mostrarSeccion("edit-product");
 }
+
+async function eliminarProductoPorID(productId) {
+  const recordToDelete = menuCompleto.find(item => item.fields.ID == productId);
+
+  if (!recordToDelete) {
+    mostrarModalMensaje("No se encontró el producto con ese ID");
+    return;
+  }
+
+  mostrarModalConfirmacion("¿Estás seguro que querés eliminar este producto?", async () => {
+    try {
+      const response = await fetch(`${url}/${recordToDelete.id}`, {
+        method: "DELETE",
+        headers: headers
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al eliminar el producto");
+      }
+
+      menuCompleto = menuCompleto.filter(item => item.id !== recordToDelete.id);
+      renderMenu(menuCompleto);
+      mostrarModalMensaje("Producto eliminado correctamente");
+
+    } catch (error) {
+      mostrarModalMensaje("Error al eliminar: " + error.message);
+    }
+  });
+}
+
+function mostrarModalConfirmacion(mensaje, onConfirmar) {
+  const modal = document.getElementById("modal-confirmacion");
+  const mensajeElem = document.getElementById("modal-confirmacion-mensaje");
+  const btnConfirmar = document.getElementById("btn-confirmar");
+  const btnCancelar = document.getElementById("btn-cancelar");
+
+  mensajeElem.textContent = mensaje;
+  modal.style.display = "flex";
+
+  const cerrar = () => {
+    modal.style.display = "none";
+    btnConfirmar.removeEventListener("click", confirmar);
+    btnCancelar.removeEventListener("click", cerrar);
+  };
+
+  const confirmar = () => {
+    cerrar();
+    onConfirmar();
+  };
+
+  btnConfirmar.addEventListener("click", confirmar);
+  btnCancelar.addEventListener("click", cerrar);
+}
+
+function mostrarModalMensaje(mensaje) {
+  const modal = document.getElementById("modal-mensaje");
+  const texto = document.getElementById("modal-mensaje-texto");
+  const btnOk = document.getElementById("btn-mensaje-ok");
+
+  texto.textContent = mensaje;
+  modal.style.display = "flex";
+
+  const cerrar = () => {
+    modal.style.display = "none";
+    btnOk.removeEventListener("click", cerrar);
+  };
+
+  btnOk.addEventListener("click", cerrar);
+}
+
+document.querySelector(".finalizar-btn").addEventListener("click", () => {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || { cantidad: 0, products: [] };
+
+  if (carrito.products.length === 0) {
+    alert("El carrito está vacío.");
+    return;
+  }
+
+  document.getElementById("pedido-modal").classList.remove("hidden");
+});
+
+document.getElementById("enviar-pedido").addEventListener("click", () => {
+  const direccion = document.getElementById("direccion").value.trim();
+  const pago = document.getElementById("pago").value.trim();
+
+  if (!direccion || !pago) {
+    alert("Por favor completá todos los campos.");
+    return;
+  }
+
+  document.getElementById("pedido-modal").classList.add("hidden");
+  document.getElementById("pedido-popup").classList.remove("hidden");
+
+  localStorage.removeItem("carrito");
+  actualizarContadorCarrito();
+  renderCarrito();
+});
+
+document.getElementById("cerrar-popup").addEventListener("click", () => {
+  document.getElementById("pedido-popup").classList.add("hidden");
+});

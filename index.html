@@ -71,6 +71,9 @@
     <section id="menu">
       <div class="menu">
         <h2>Nuestro Menú</h2>
+        <div id="admin-controls" style="display: none;">
+          <button id="btn-nuevo-producto">+ Agregar producto</button>
+        </div>
         <div class="menu-filter">
           <input type="text" id="search-input" placeholder="Buscar por nombre..." />
           <select id="price-sort">
@@ -118,6 +121,32 @@
         <h2>Carrito</h2>
         <div id="cart-items" class="menu-grid"></div>
         <p id="cart-empty">El carrito está vacío.</p>
+        <div class="cart-total">
+          <p id="total-amount">Total: $0</p>
+          <button class="finalizar-btn">Finalizar pedido</button>
+        </div>
+      </div>
+
+      <div id="pedido-modal" class="modal hidden">
+        <div class="modal-cart">
+          <h3>Completar pedido</h3>
+          <label for="direccion">Dirección:</label>
+          <input type="text" id="direccion" placeholder="Ej: Calle 123">
+
+          <label for="pago">¿Con cuánto abonás?</label>
+          <input type="number" id="pago" placeholder="Ej: 5000">
+
+          <button id="enviar-pedido">Enviar pedido</button>
+        </div>
+      </div>
+
+
+      <div id="pedido-popup" class="popup hidden">
+        <div class="popup-content">
+          <h3>¡Pedido realizado!</h3>
+          <p>Gracias por tu compra.</p>
+          <button id="cerrar-popup">Cerrar</button>
+        </div>
       </div>
     </section>
 
@@ -172,6 +201,8 @@
     <p>&copy; 2025 Esquina Bermúdez. Todos los derechos reservados.</p>
   </footer>
 
+  <!-- /* MODALES */ -->
+
   <div id="oferta-modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -180,6 +211,50 @@
       <img src="assets/oferta.jpg" alt="ofertaza">
     </div>
   </div>
+
+  <div id="modal-nuevo-producto" class="modal" style="display: none;">
+    <div class="modal-new-product">
+      <span class="close" id="cerrar-nuevo-producto">&times;</span>
+      <h3>Nuevo Producto</h3>
+      <form id="form-nuevo-producto">
+        <input type="text" id="nuevo-nombre" placeholder="Nombre" required />
+        <textarea id="nuevo-descripcion" placeholder="Descripción" required></textarea>
+        <input type="number" id="nuevo-precio" placeholder="Precio" required />
+        <input type="url" id="nuevo-imagen" placeholder="URL de la imagen (ej: https://...)" required />
+        <button type="submit">Agregar</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="modal-confirmacion" class="modal">
+    <div class="modal-confirm">
+      <p id="modal-confirmacion-mensaje">¿Estás seguro que querés eliminar este producto?</p>
+      <div class="modal-botones">
+        <button id="btn-confirmar">Sí</button>
+        <button id="btn-cancelar">No</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-mensaje" class="modal">
+    <div class="modal-confirm">
+      <p id="modal-mensaje-texto"></p>
+      <div class="modal-botones">
+        <button id="btn-mensaje-ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-nuevo-exito" class="modal">
+    <div class="modal-confirm">
+      <p>Producto agregado con éxito</p>
+      <div class="modal-botones">
+        <button id="btn-nuevo-exito-ok">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- scripts -->
   <script src="./scripts/login.js"></script>
   <script src="./scripts/cart.js"></script>
   <script src="./scripts/app.js"></script>
