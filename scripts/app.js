@@ -3,7 +3,6 @@ const searchInput = document.getElementById("search-input");
 const navLinks = document.querySelectorAll("header a[data-section]");
 const sections = document.querySelectorAll("main section");
 const priceSortSelect = document.getElementById("price-sort");
-const editForm = document.querySelector(".edit-product-form");
 
 // AIRTABLE
 const baseId = 'appmPHgEdsk4lQoQo';
@@ -246,6 +245,61 @@ document.getElementById("btn-nuevo-producto").addEventListener("click", () => {
 
 document.getElementById("cerrar-nuevo-producto").addEventListener("click", () => {
   document.getElementById("modal-nuevo-producto").style.display = "none";
+});
+
+document.querySelector(".edit-product-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const id = document.querySelector(".input-id").value;
+  const nombre = document.querySelector(".input-nombre").value.trim();
+  const descripcion = document.querySelector(".input-descripcion").value.trim();
+  const precio = parseFloat(document.querySelector(".input-precio").value);
+  const imagen = document.querySelector(".input-imagen").value.trim();
+
+  if (!nombre || !descripcion || isNaN(precio)) {
+    mostrarModalMensaje("Por favor completá todos los campos correctamente.");
+    return;
+  }
+
+  const registro = menuCompleto.find(item => item.fields.ID == id);
+  if (!registro) {
+    mostrarModalMensaje("Producto no encontrado.");
+    return;
+  }
+
+  const recordAirtableId = registro.id;
+
+  const productoEditado = {
+    fields: {
+      Nombre: nombre,
+      Descripción: descripcion,
+      Precio: precio,
+      Imagen: imagen
+    }
+  };
+
+  try {
+    const response = await fetch(`${url}/${recordAirtableId}`, {
+      method: "PATCH",
+      headers: headers,
+      body: JSON.stringify(productoEditado)
+    });
+
+    if (!response.ok) throw new Error("Error al editar el producto");
+
+    const dataActualizada = await response.json();
+
+    // Actualizar en memoria
+    menuCompleto = menuCompleto.map(item =>
+      item.id === recordAirtableId ? dataActualizada : item
+    );
+
+    renderMenu(menuCompleto);
+    mostrarSeccion("menu");
+    mostrarModalMensaje("Producto editado correctamente.");
+  } catch (error) {
+    mostrarModalMensaje("Error al editar: " + error.message);
+  }
 });
 
 function esUrlValida(url) {

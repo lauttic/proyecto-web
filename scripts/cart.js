@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.querySelector(".btn-cancel").addEventListener("click", () => {
-  mostrarSeccion("home");
+  mostrarSeccion("menu");
 });
 
 function agregarAlCarrito(productoSimple) {
