@@ -75,15 +75,32 @@
           <button id="btn-nuevo-producto">+ Agregar producto</button>
         </div>
         <div class="menu-filter">
-          <input type="text" id="search-input" placeholder="Buscar por nombre..." />
-          <select id="price-sort">
-            <option value="">Ordenar por</option>
-            <option value="asc">Precio: menor a mayor</option>
-            <option value="desc">Precio: mayor a menor</option>
-          </select>
+          <button id="open-filters" class="open-filters-btn">🔍 Filtros</button>
+          <button id="clear-filters" class="clear-filters-btn">🧹 Limpiar filtros</button>
         </div>
       </div>
       <div id="menu-container" class="menu-grid"></div>
+      <aside id="sidenav" class="sidenav">
+        <button id="close-filters" class="close-btn">✖</button>
+        <h3>Filtrar productos</h3>
+
+        <input type="text" id="search-input" placeholder="Buscar por nombre..." />
+
+        <label for="price-sort">Ordenar por precio</label>
+        <select id="price-sort">
+          <option value="">Seleccionar</option>
+          <option value="asc">Menor a mayor</option>
+          <option value="desc">Mayor a menor</option>
+        </select>
+
+        <label for="min-price">Precio mínimo</label>
+        <input type="number" id="min-price" placeholder="Ej: 2000" />
+
+        <label for="max-price">Precio máximo</label>
+        <input type="number" id="max-price" placeholder="Ej: 5000" />
+
+        <button id="apply-filters" class="apply-btn">Aplicar filtros</button>
+      </aside>
     </section>
 
     <section id="nosotros">

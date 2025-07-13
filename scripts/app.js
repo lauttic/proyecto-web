@@ -3,6 +3,11 @@ const searchInput = document.getElementById("search-input");
 const navLinks = document.querySelectorAll("header a[data-section]");
 const sections = document.querySelectorAll("main section");
 const priceSortSelect = document.getElementById("price-sort");
+const openBtn = document.getElementById('open-filters');
+const closeBtn = document.getElementById('close-filters');
+const sidenav = document.getElementById('sidenav');
+const applyBtn = document.getElementById("apply-filters");
+const clearBtn = document.getElementById("clear-filters");
 
 // AIRTABLE
 const baseId = 'appmPHgEdsk4lQoQo';
@@ -86,13 +91,44 @@ function renderMenu(items) {
   }
 }
 
-searchInput.addEventListener("input", () => {
-  const texto = searchInput.value.toLowerCase();
-  const filtrados = menuCompleto.filter(item => {
-    const product = item.fields;
-    return product.Nombre.toLowerCase().includes(texto)
-  });
+applyBtn.addEventListener("click", () => {
+  const searchText = searchInput.value.toLowerCase();
+  const selectedPrice = priceSortSelect.value;
+  const minPrice = parseFloat(document.getElementById("min-price").value);
+  const maxPrice = parseFloat(document.getElementById("max-price").value);
+
+  let filtrados = [...menuCompleto];
+
+  // Filtrar por nombre
+  if (searchText) {
+    filtrados = filtrados.filter(item =>
+      item.fields.Nombre.toLowerCase().includes(searchText)
+    );
+  }
+
+  // Filtrar por precio mínimo
+  if (!isNaN(minPrice)) {
+    filtrados = filtrados.filter(item =>
+      item.fields.Precio >= minPrice
+    );
+  }
+
+  // Filtrar por precio máximo
+  if (!isNaN(maxPrice)) {
+    filtrados = filtrados.filter(item =>
+      item.fields.Precio <= maxPrice
+    );
+  }
+
+  // Ordenar por precio
+  if (selectedPrice === "asc") {
+    filtrados.sort((a, b) => a.fields.Precio - b.fields.Precio);
+  } else if (selectedPrice === "desc") {
+    filtrados.sort((a, b) => b.fields.Precio - a.fields.Precio);
+  }
+
   renderMenu(filtrados);
+  sidenav.classList.remove("open");
 });
 
 function mostrarSeccion(id) {
@@ -149,20 +185,6 @@ navLinks.forEach(link => {
   });
 });
 
-priceSortSelect.addEventListener("change", () => {
-  const orden = priceSortSelect.value;
-
-  let productosOrdenados = [...menuCompleto];
-
-  if (orden === "asc") {
-    productosOrdenados.sort((a, b) => a.fields.Precio - b.fields.Precio);
-  } else if (orden === "desc") {
-    productosOrdenados.sort((a, b) => b.fields.Precio - a.fields.Precio);
-  }
-
-  renderMenu(productosOrdenados);
-});
-
 window.addEventListener("load", () => {
   const modal = document.getElementById("oferta-modal");
   const cerrar = document.querySelector(".close");
@@ -172,6 +194,17 @@ window.addEventListener("load", () => {
   cerrar.addEventListener("click", () => {
     modal.style.display = "none";
   });
+});
+
+clearBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  priceSortSelect.value = "";
+  const minPriceInput = document.getElementById("min-price");
+  const maxPriceInput = document.getElementById("max-price");
+  if (minPriceInput) minPriceInput.value = "";
+  if (maxPriceInput) maxPriceInput.value = "";
+
+  renderMenu(menuCompleto);
 });
 
 document.getElementById("form-nuevo-producto").addEventListener("submit", async (e) => {
@@ -301,6 +334,14 @@ document.querySelector(".edit-product-form").addEventListener("submit", async (e
     mostrarModalMensaje("Error al editar: " + error.message);
   }
 });
+
+ openBtn.addEventListener('click', () => {
+    sidenav.classList.add('open');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sidenav.classList.remove('open');
+  });
 
 function esUrlValida(url) {
   try {
