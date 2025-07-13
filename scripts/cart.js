@@ -3,7 +3,7 @@ const cartEmptyMsg = document.getElementById("cart-empty");
 
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("add-btn")) {
-    const id = Number(e.target.dataset.id); 
+    const id = Number(e.target.dataset.id);
 
     const productoSeleccionado = menuCompleto.find(item => item.fields.ID === id);
     if (productoSeleccionado) {
@@ -23,17 +23,27 @@ document.querySelector(".btn-cancel").addEventListener("click", () => {
 
 function agregarAlCarrito(productoSimple) {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || { cantidad: 0, products: [] };
+
+  const indexExistente = carrito.products.findIndex(p => p.fields.ID === productoSimple.fields.ID);
+
+  if (indexExistente !== -1) {
+    carrito.products[indexExistente].cantidad += 1;
+  } else {
+    productoSimple.cantidad = 1;
+    carrito.products.push(productoSimple);
+  }
+
   carrito.cantidad += 1;
-  carrito.products.push(productoSimple);
+
   localStorage.setItem("carrito", JSON.stringify(carrito));
-  actualizarContadorCarrito(); 
+  actualizarContadorCarrito();
   renderCarrito();
 }
 
 function actualizarContadorCarrito() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || { cantidad: 0, products: [] };
   const contador = document.getElementById("cart-count");
-  
+
   if (!contador) return;
 
   if (carrito.cantidad > 0) {
@@ -63,20 +73,29 @@ function renderCarrito() {
 
   carrito.products.forEach((item, index) => {
     const product = item.fields;
-    total += product.Precio;
+    const cantidad = item.cantidad || 1;
+    total += product.Precio * cantidad;
 
     const card = document.createElement("div");
     card.className = "menu-card";
 
     card.innerHTML = `
-      <img src="./${product.Imagen}" alt="${product.Nombre}">
-      <div class="menu-card-content">
-        <h3>${product.Nombre}</h3>
-        <p>${product.Descripción}</p>
-        <div class="price">$${product.Precio}</div>
+    <img src="./${product.Imagen}" alt="${product.Nombre}">
+    <div class="menu-card-content">
+      <h3>${product.Nombre}</h3>
+      <p>${product.Descripción}</p>
+
+      <div class="cantidad-control">
+      <div class="price">$${product.Precio}</div>
+      <div>
+        <button class="restar-btn" data-index="${index}">−</button>
+        <span class="cantidad">${cantidad}</span>
+        <button class="sumar-btn" data-index="${index}">+</button>
+        </div>
       </div>
-      <button class="remove-btn" data-index="${index}">Eliminar</button>
-    `;
+    </div>
+    <button class="remove-btn" data-index="${index}">Eliminar</button>
+  `;
 
     cartItemsContainer.appendChild(card);
   });
@@ -91,6 +110,33 @@ function renderCarrito() {
     });
   });
 }
+
+cartItemsContainer.addEventListener("click", (e) => {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || { cantidad: 0, products: [] };
+  let index = parseInt(e.target.dataset.index);
+
+  if (e.target.classList.contains("sumar-btn")) {
+    carrito.products[index].cantidad += 1;
+    carrito.cantidad += 1;
+  }
+
+  if (e.target.classList.contains("restar-btn")) {
+    const cantidadActual = carrito.products[index].cantidad;
+
+    if (cantidadActual > 1) {
+      carrito.products[index].cantidad -= 1;
+      carrito.cantidad -= 1;
+    } else {
+      // Si la cantidad es 1, al restar se elimina
+      carrito.cantidad -= 1;
+      carrito.products.splice(index, 1);
+    }
+  }
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarContadorCarrito();
+  renderCarrito();
+});
 
 function eliminarDelCarrito(index) {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || { cantidad: 0, products: [] };
@@ -197,7 +243,7 @@ document.querySelector(".finalizar-btn").addEventListener("click", () => {
     return;
   }
 
-document.getElementById("pedido-modal").style.display = "flex";
+  document.getElementById("pedido-modal").style.display = "flex";
 });
 
 document.getElementById("enviar-pedido").addEventListener("click", () => {
@@ -209,7 +255,7 @@ document.getElementById("enviar-pedido").addEventListener("click", () => {
     return;
   }
 
-document.getElementById("pedido-modal").style.display = "none";
+  document.getElementById("pedido-modal").style.display = "none";
   document.getElementById("pedido-popup").classList.remove("hidden");
 
   localStorage.removeItem("carrito");

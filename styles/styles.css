@@ -841,6 +841,30 @@ footer {
   background-color: #eae5dd;
 }
 
+.cantidad-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.cantidad-control button {
+  background-color: #5c3d28;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cantidad-control .cantidad {
+  font-weight: bold;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   body {
     font-size: 17px;
